@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="assets/stylesheets/styles.css"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <title>Quests to Awesomeness</title>
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Quests to Awesomeness</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="add.html" id="addLink" type="button">Add</a></li>
+            <!-- <li><a href="update.html">Update/Edit</a></li> -->
+            <!-- <li><a href="delete.html">Delete</a></li> -->
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    
+    <div id="successDelete" class="alert alert-success">Record was deleted successfully"</div>
+    <div id="successEdit" class="alert alert-success">Record was updated successfully"</div>
+    <div id="successAdd" class="alert alert-success">Record was added successfully"</div>
+    
+    <h1>Your Quests</h1>
+    <table>
+      <thead id="table-heading">
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+    
+    <div id="addForm">
+    <form id="addQuest" class="form-horizontal">
+    <fieldset>
+    <!-- Add a new quest form -->
+    <legend>Add a New Quest</legend>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="questName">Quest Name</label>  
+      <div class="col-md-5">
+      <input id="questName" name="questName" type="text" placeholder="goal or topic/subject" class="form-control input-md" required="">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="userName">User Name</label>  
+      <div class="col-md-4">
+      <input id="username" name="username" type="text" placeholder="your username" class="form-control input-md" required="">
+      </div>
+    </div>
+
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="passwordinput">Password Input</label>
+      <div class="col-md-4">
+        <input id="password" name="password" type="text" placeholder="placeholder" class="form-control input-md" required="">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="email">E-mail</label>  
+      <div class="col-md-5">
+      <input id="email" name="email" type="text" placeholder="email address" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="progress">Progress</label>
+      <div class="col-md-4">
+      <input name="progress" type="text" placeholder="email address" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="startDate">Start Date</label>  
+      <div class="col-md-4">
+      <input name="startDate" type="text" placeholder="the day you start" class="form-control input-md">  
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="endDate">End Date</label>  
+      <div class="col-md-4">
+      <input name="endDate" type="text" placeholder="the day to be done" class="form-control input-md"> 
+      </div>
+    </div>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="status">Status</label>
+      <div class="col-md-4">
+        <input name="status" type="text" placeholder="active, inactive, complete, cancelled, pending, deferred" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="summary">Summary</label>
+      <div class="col-md-4">                     
+        <input name="summary" type="text" placeholder="summary" class="form-control input-md">
+      </div>
+    </div>
+
+    </fieldset>
+    </form>
+  </div>
+
+  <div id="editForm">
+  <form id="editQuest" class="form-horizontal">
+  <fieldset>
+  <!-- Add a new quest form -->
+  <legend>Edit a Quest</legend>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="questName">Quest Name</label>  
+    <div class="col-md-5">
+    <input name="questName" type="text" placeholder="goal or topic/subject" class="form-control input-md" required="">
+    </div>
+  </div>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="userName">User Name</label>  
+    <div class="col-md-4">
+    <input name="username" type="text" placeholder="your username" class="form-control input-md" required="">
+    </div>
+  </div>
+
+  <!-- Password input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="passwordinput">Password Input</label>
+    <div class="col-md-4">
+      <input name="password" type="text" placeholder="placeholder" class="form-control input-md" required="">
+    </div>
+  </div>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="email">E-mail</label>  
+    <div class="col-md-5">
+    <input name="email" type="text" placeholder="email address" class="form-control input-md">
+    </div>
+  </div>
+
+  <!-- Select Basic -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="progress">Progress</label>
+    <div class="col-md-4">
+    <input name="progress" type="text" placeholder="email address" class="form-control input-md">
+    </div>
+  </div>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="startDate">Start Date</label>  
+    <div class="col-md-4">
+    <input name="startDate" type="text" placeholder="the day you start" class="form-control input-md">  
+    </div>
+  </div>
+
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="endDate">End Date</label>  
+    <div class="col-md-4">
+    <input name="endDate" type="text" placeholder="the day to be done" class="form-control input-md"> 
+    </div>
+  </div>
+
+  <!-- Select Basic -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="status">Status</label>
+    <div class="col-md-4">
+      <input name="status" type="text" placeholder="active, inactive, complete, cancelled, pending, deferred" class="form-control input-md">
+    </div>
+  </div>
+
+  <!-- Textarea -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="summary">Summary</label>
+    <div class="col-md-4">                     
+      <input name="summary" type="text" placeholder="summary" class="form-control input-md">
+    </div>
+  </div>
+
+  </fieldset>
+  </form>
+</div>
+
+
+    <!-- scripts needed for js and bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="assets/javascripts/scripts.js"></script>  
+  </body>
+</html>
